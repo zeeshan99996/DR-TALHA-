@@ -82,10 +82,11 @@
     position:absolute;
     inset:0;
     background-image:
-      linear-gradient(90deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.76) 45%, rgba(255,255,255,0.28) 100%),
-      url('clinic-bg.jpg');
-    background-size:cover;
-    background-position:center 15%;
+      linear-gradient(90deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.72) 32%, rgba(255,255,255,0.12) 52%, rgba(255,255,255,0.25) 75%, rgba(255,255,255,0.65) 100%),
+      url('clinic-bg.jpg?v=2');
+    background-size:100% 100%, contain;
+    background-repeat:no-repeat, no-repeat;
+    background-position:center center, center center;
     opacity:0.55;
     pointer-events:none;
     z-index:0;
@@ -263,9 +264,11 @@
     .menu-toggle{display:block;}
     .hero{padding:24px 0 0;}
     .hero-bg-media{
-      background-position:center top;
-      background-image:linear-gradient(180deg, rgba(255,255,255,0.93) 0%, rgba(255,255,255,0.78) 45%, rgba(255,255,255,0.35) 100%), url('clinic-bg.jpg');
-      opacity:0.50;
+      background-size:100% 100%, contain;
+      background-repeat:no-repeat, no-repeat;
+      background-position:center top, center 12px;
+      background-image:linear-gradient(180deg, rgba(255,255,255,0.94) 0%, rgba(255,255,255,0.78) 45%, rgba(255,255,255,0.25) 100%), url('clinic-bg.jpg?v=2');
+      opacity:0.55;
     }
     .hero-grid{grid-template-columns:1fr;gap:20px;text-align:center;}
     .hero-left{padding-top:4px;padding-bottom:16px;display:flex;flex-direction:column;align-items:center;text-align:center;}
