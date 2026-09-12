@@ -17,11 +17,42 @@ const MIME_TYPES = {
 };
 
 const BACKEND_PORT = process.env.BACKEND_PORT || 5000;
+let chatHandler = null;
+try {
+  chatHandler = require('./api/chat.js');
+} catch (e) {
+  console.warn('api/chat.js not loaded, falling back to proxy mode:', e.message);
+}
 
 const server = http.createServer((req, res) => {
   let reqPath = req.url.split('?')[0];
 
-  // Proxy /api/ requests to backend AI server
+  // Handle /api/chat directly if chatHandler is available
+  if (reqPath.startsWith('/api/chat') && chatHandler) {
+    let body = '';
+    req.on('data', chunk => body += chunk);
+    req.on('end', () => {
+      try {
+        req.body = body ? JSON.parse(body) : {};
+      } catch (e) {
+        req.body = {};
+      }
+      res.status = function(code) {
+        this.statusCode = code;
+        return this;
+      };
+      res.json = function(data) {
+        if (!this.headersSent) {
+          this.writeHead(this.statusCode || 200, { 'Content-Type': 'application/json' });
+        }
+        this.end(JSON.stringify(data));
+      };
+      chatHandler(req, res);
+    });
+    return;
+  }
+
+  // Fallback proxy /api/ requests to port 5000 if running
   if (reqPath.startsWith('/api/')) {
     const proxyReq = http.request({
       hostname: 'localhost',
@@ -38,7 +69,7 @@ const server = http.createServer((req, res) => {
       console.error('Proxy error to backend:', err.message);
       res.writeHead(502, { 'Content-Type': 'application/json' });
       res.end(JSON.stringify({
-        error: 'Backend AI server is not reachable on port 5000. Please make sure backend is running (cd backend && npm start).',
+        error: 'Backend AI server is not reachable.',
         reply: 'Dr. Talha Clinic 24/7 khula hai. Appointment ya kisi bhi sawal ke liye direct call karein: +92 307 7953767.'
       }));
     });
