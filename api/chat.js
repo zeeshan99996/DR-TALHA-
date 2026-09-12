@@ -34,9 +34,17 @@ function getFastPathResponse(query) {
   const q = normalizeText(query);
   if (!q) return null;
 
-  // Greetings
-  if (/^(salam|assalam|assalamu|aoa|hi|hello|hey|slam|assalam\s*o\s*alaikum|assalamu\s*alaikum)/.test(q)) {
-    return "Walaikum Assalam! Main Talha Clinic & Maternity Home ka Virtual Assistant hoon. Main aapki kya madad kar sakta hoon? Aap doctor timings, services, lab tests ya appointment ke baarey mein pooch sakte hain.";
+  // Structured suggestions helper for greetings
+  const suggestions = `\nAap mujh se in cheezon ke baarey mein pooch sakte hain:\n\n• 👨‍⚕️ **Doctor Timings:** Dr. Talha Mahmood, Dr. Bilal Yousaf, Dr. Zaka-ur-Rehman Qureshi\n• 🏥 **Services:** 24/7 Emergency, Ultrasound, Digital X-Ray, Laboratory, Pharmacy, Maternity Care\n• 📅 **Appointments:** Doctor checkup slot aur timing confirm karna\n• 📍 **Location:** New Sawera Point, Near Hashmi Chowk, Makhdoom Rasheed\n\n📞 **Direct Helpline:** +92 307 7953767 (24/7 Khula Hai)`;
+
+  // Hi / Hello / English greetings
+  if (/^(hi|hello|hey|hlo|hii|hy|good\s*morning|good\s*afternoon|good\s*evening)$/.test(q)) {
+    return `Hello! Main Talha Clinic & Maternity Home ka Virtual Assistant hoon. Main aapki kya madad kar sakta hoon?\n${suggestions}`;
+  }
+
+  // Salam greetings
+  if (/^(salam|assalam|assalamu|aoa|slam|assalam\s*o\s*alaikum|assalamu\s*alaikum)$/.test(q)) {
+    return `Walaikum Assalam! Talha Clinic & Maternity Home mein aapka khushamdeed. Main aapki kya madad kar sakta hoon?\n${suggestions}`;
   }
 
   // Obvious out-of-scope patterns
