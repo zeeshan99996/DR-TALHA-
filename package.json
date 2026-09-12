@@ -4,7 +4,6 @@
   "description": "Talha Clinic & Maternity Home — 24/7 Emergency Care",
   "main": "local-server.js",
   "scripts": {
-    "build": "echo 'Build successful'",
     "start": "node local-server.js"
   },
   "dependencies": {
