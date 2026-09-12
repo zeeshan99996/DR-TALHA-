@@ -9,6 +9,7 @@
 <link rel="apple-touch-icon" href="logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="frontend-widget/widget.css">
 <style>
   :root{
     --bg:#FFFFFF;
@@ -304,7 +305,7 @@
     .hero-doctor-full-wrap::before{width:280px;height:280px;right:auto;left:50%;transform:translateX(-50%);}
     .hero-doctor-full-img{max-width:320px;width:82%;height:auto;margin-bottom:0;}
     .cta-strip{flex-direction:column;text-align:center;padding:26px 18px;}
-    .float-call{display:flex;}
+    .float-call{display:flex;right:auto;left:18px;}
   }
   @media (max-width:520px){
     .wrap{padding:0 16px;}
@@ -654,5 +655,8 @@
   }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 </script>
+
+<!-- Dr. Talha Clinic AI Chatbot Widget -->
+<script src="frontend-widget/widget.js"></script>
 </body>
 </html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dr. Talha Clinic AI Chatbot Widget - Demo</title>
+  <link rel="stylesheet" href="widget.css">
+  <style>
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #F5F8FC;
+      color: #1B2740;
+      margin: 0;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .demo-container {
+      max-width: 720px;
+      width: 100%;
+      background: #fff;
+      padding: 36px;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(15, 79, 174, 0.08);
+      border: 1px solid #E3E9F2;
+    }
+    h1 {
+      font-family: 'Outfit', sans-serif;
+      color: #0F1A2E;
+      margin-top: 0;
+      font-size: 26px;
+    }
+    .badge {
+      display: inline-block;
+      background: #EAF2FD;
+      color: #1568D6;
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+    p {
+      line-height: 1.6;
+      color: #5B6981;
+    }
+    .feature-list {
+      margin: 20px 0;
+      padding-left: 20px;
+      color: #1B2740;
+    }
+    .feature-list li {
+      margin-bottom: 8px;
+    }
+    .code-box {
+      background: #0F1A2E;
+      color: #EAF2FD;
+      padding: 16px;
+      border-radius: 8px;
+      font-family: monospace;
+      font-size: 13px;
+      overflow-x: auto;
+      margin: 20px 0;
+    }
+    .hint {
+      background: #EAF2FD;
+      border-left: 4px solid #1568D6;
+      padding: 12px 16px;
+      border-radius: 4px;
+      font-size: 14px;
+      color: #0F4FAE;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="demo-container">
+    <span class="badge">AI Widget Demo & Test Page</span>
+    <h1>Dr. Talha Clinic AI Chat Assistant</h1>
+    <p>This page demonstrates the floating AI chat widget grounded strictly on <strong>Talha Clinic & Maternity Home</strong> knowledge base, powered by Google Gemini 1.5 Flash.</p>
+    
+    <div class="hint">
+      👉 Look at the bottom-right corner of this page to click and test the chat widget!
+    </div>
+
+    <h3>Test Scenarios to Try:</h3>
+    <ul class="feature-list">
+      <li><strong>In-Domain:</strong> Ask <em>"What are Dr. Talha's timings?"</em> or <em>"Do you offer ultrasound?"</em></li>
+      <li><strong>In-Domain (Urdu):</strong> Ask <em>"Dr. Talha kab baithtay hain?"</em> or <em>"Emergency khuli hai?"</em></li>
+      <li><strong>Out-of-Domain Guardrail:</strong> Ask <em>"Write python code for a calculator"</em> or <em>"Who is the prime minister?"</em> (The bot will strictly decline).</li>
+      <li><strong>Rate Limiting & Caching:</strong> Fast instant answers on repeated queries to save quota.</li>
+    </ul>
+
+    <h3>Embedding Instructions:</h3>
+    <p>Include the following two tags in any HTML page to embed this chatbot:</p>
+    <div class="code-box">
+&lt;!-- Dr. Talha Clinic AI Chat Widget --&gt;
+&lt;link rel="stylesheet" href="frontend-widget/widget.css"&gt;
+&lt;script src="frontend-widget/widget.js"&gt;&lt;/script&gt;
+    </div>
+  </div>
+
+  <!-- Dr. Talha Clinic Chat Widget Script -->
+  <script src="widget.js"></script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+{
+  "clinic_info": {
+    "name": "Talha Clinic & Maternity Home",
+    "name_urdu": "طلحہ کلینک اینڈ میٹرنٹی ہوم",
+    "tagline": "Simple, reliable care — open around the clock.",
+    "location": {
+      "address": "New Sawera Point, Near Hashmi Chowk, Makhdoom Rasheed",
+      "city": "Makhdoom Rasheed",
+      "google_maps_query": "Hashmi Chowk, Makhdoom Rasheed"
+    },
+    "contact": {
+      "phone": "+92 307 7953767",
+      "phone_display": "0307-7953767",
+      "whatsapp": "+92 307 7953767"
+    },
+    "timings": {
+      "emergency": "24/7 (24 hours a day, 7 days a week, 365 days a year)",
+      "off_days": "None (0 off days - Open every day and on all public holidays)",
+      "general_opd": "Open around the clock"
+    }
+  },
+  "doctors": [
+    {
+      "name": "Dr. Talha Mahmood",
+      "role": "General Physician & Emergency Specialist",
+      "qualifications": "MBBS, FCPS, Ex DMS DHQ Vehari",
+      "timings": "Daily 02:00 PM – 08:00 PM / 24/7 Emergency on call",
+      "specialization": "General medicine, emergency care, adult health, chronic disease management"
+    },
+    {
+      "name": "Dr. Bilal Yousaf",
+      "role": "General Physician & Medical Officer",
+      "qualifications": "MBBS, RMP (Nishtar Hospital Multan)",
+      "timings": "Daily 08:00 AM – 02:00 PM",
+      "specialization": "Primary care, outpatient consultations, acute illness"
+    },
+    {
+      "name": "Dr. Zaka-ur-Rehman Qureshi",
+      "role": "Consultant Orthopedic Surgeon",
+      "qualifications": "MBBS, MRCS (Edin, UK), FCPS (Ortho), ATLS (USA)",
+      "timings": "Every Friday: 01:30 PM – 03:30 PM",
+      "specialization": "Bone fractures, joint pain, orthopedic surgery, sports injuries"
+    }
+  ],
+  "services": [
+    {
+      "name": "24/7 Emergency Care",
+      "description": "Immediate acute medical attention available every hour of every day without delay."
+    },
+    {
+      "name": "General Consultation & Family Medicine",
+      "description": "Everyday check-ups, disease diagnosis, health screenings, and treatments by qualified physicians."
+    },
+    {
+      "name": "Maternity Care & Maternity Home",
+      "description": "Comprehensive healthcare for mothers and newborns before, during, and after childbirth."
+    },
+    {
+      "name": "Laboratory",
+      "description": "On-site diagnostic laboratory with fast, accurate blood, urine, and biochemical tests."
+    },
+    {
+      "name": "Pharmacy",
+      "description": "In-house pharmacy stocked with all essential prescribed and over-the-counter medicines."
+    },
+    {
+      "name": "Ultrasound",
+      "description": "Safe, non-invasive imaging for prenatal monitoring, abdominal, and pelvic diagnosis."
+    },
+    {
+      "name": "Digital X-Ray",
+      "description": "On-site digital X-ray imaging for rapid detection of bone injuries and chest diagnostics."
+    },
+    {
+      "name": "Vaccination",
+      "description": "Routine childhood immunizations (EPI) and adult vaccinations administered by trained medical staff."
+    }
+  ],
+  "appointment_and_inquiries": {
+    "procedure": "Patients can walk in directly 24/7 for emergency and regular OPD, or call/WhatsApp +92 307 7953767 to schedule a slot or confirm specialist availability.",
+    "website_contact_form": "Available on the clinic homepage under the Contact Us section."
+  },
+  "guardrail_refusal_message": "Maaf kijiye, main sirf Dr. Talha ki services, appointments aur clinic details ke baarey mein rehnumai kar sakta hoon."
+}
