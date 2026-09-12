@@ -37,13 +37,13 @@ function getFastPathResponse(query) {
   // Structured suggestions helper for greetings
   const suggestions = `\nAap mujh se in cheezon ke baarey mein pooch sakte hain:\n\n• 👨‍⚕️ **Doctor Timings:** Dr. Talha Mahmood, Dr. Bilal Yousaf, Dr. Zaka-ur-Rehman Qureshi\n• 🏥 **Services:** 24/7 Emergency, Ultrasound, Digital X-Ray, Laboratory, Pharmacy, Maternity Care\n• 📅 **Appointments:** Doctor checkup slot aur timing confirm karna\n• 📍 **Location:** New Sawera Point, Near Hashmi Chowk, Makhdoom Rasheed\n\n📞 **Direct Helpline:** +92 307 7953767 (24/7 Khula Hai)`;
 
-  // Hi / Hello / English greetings
-  if (/^(hi|hello|hey|hlo|hii|hy|good\s*morning|good\s*afternoon|good\s*evening)$/.test(q)) {
+  // Hi / Hello / English greetings with typos (helo, hillo, hlo, hlw, hii, hy, heyy, hellow, etc.)
+  if (/^(h+[i!y]+|h+e+y+|h+[aeiouy]*l+o*w*|good\s*(morning|afternoon|evening))$/i.test(q)) {
     return `Hello! Main Talha Clinic & Maternity Home ka Virtual Assistant hoon. Main aapki kya madad kar sakta hoon?\n${suggestions}`;
   }
 
-  // Salam greetings
-  if (/^(salam|assalam|assalamu|aoa|slam|assalam\s*o\s*alaikum|assalamu\s*alaikum)$/.test(q)) {
+  // Salam greetings with typos (salam, slam, slm, salaam, assalam, aslam, aoa, etc.)
+  if (/^(s+l+m+|s+a*l+a*m+|a+s+a*l+a*m+|aoa|a\.o\.a|assalam\s*o?\s*alaikum|assalamu\s*alaikum)/i.test(q)) {
     return `Walaikum Assalam! Talha Clinic & Maternity Home mein aapka khushamdeed. Main aapki kya madad kar sakta hoon?\n${suggestions}`;
   }
 
@@ -140,16 +140,10 @@ module.exports = async (req, res) => {
   } catch (error) {
     console.error('Vercel API Error:', error.message || error);
 
-    if (error.status === 429 || (error.message && error.message.includes('429'))) {
-      return res.status(200).json({
-        reply: "Abhi clinic helpline par patients ka rush hai. Baraye mehrbani direct call karein: +92 307 7953767 (24/7 Available) ya thori dair baad dobara koshish karein.",
-        quotaExceeded: true
-      });
-    }
-
+    // If quota or temporary upstream error occurs, return helpful structured clinic info
     return res.status(200).json({
-      reply: "Talha Clinic & Maternity Home 24/7 khula hai. Kisi bhi sawal ya emergency ke liye direct call karein: +92 307 7953767.",
-      error: true
+      reply: `Talha Clinic & Maternity Home 24/7 open hai. Main aapki rehnumai kar sakta hoon:\n\n• 👨‍⚕️ **Doctor Timings:** Dr. Talha Mahmood (Daily 02:00 PM – 08:00 PM / 24/7 on call), Dr. Bilal Yousaf (Daily 08:00 AM – 02:00 PM), Dr. Zaka-ur-Rehman Qureshi (Every Friday 01:30 PM – 03:30 PM)\n• 🏥 **Services:** 24/7 Emergency, Ultrasound, Digital X-Ray, Laboratory, Pharmacy, Maternity Care\n• 📍 **Location:** New Sawera Point, Near Hashmi Chowk, Makhdoom Rasheed\n\n📞 **Direct Helpline:** +92 307 7953767 (24/7 Khula Hai)`,
+      fallback: true
     });
   }
 };
