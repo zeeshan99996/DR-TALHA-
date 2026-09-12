@@ -265,13 +265,44 @@
 .dt-message-time {
   font-size: 10px;
   color: var(--dt-text-dim);
-  margin-top: 4px;
+  margin-top: 6px;
   display: block;
 }
 
 .dt-message-row.dt-user .dt-message-time {
   color: rgba(255, 255, 255, 0.8);
   text-align: right;
+}
+
+.dt-message-bubble strong {
+  font-weight: 700;
+}
+
+.dt-message-row.dt-bot .dt-message-bubble strong {
+  color: var(--dt-navy);
+}
+
+.dt-message-bubble .dt-heading {
+  display: block;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 14.5px;
+  color: var(--dt-primary-dark);
+  margin: 4px 0 6px;
+}
+
+.dt-message-bubble .dt-bullet-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  margin: 4px 0;
+  line-height: 1.45;
+}
+
+.dt-message-bubble .dt-bullet-dot {
+  color: var(--dt-primary);
+  font-weight: 800;
+  flex-shrink: 0;
 }
 
 /* Suggestion Chips */

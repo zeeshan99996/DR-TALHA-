@@ -39,11 +39,11 @@ let model = null;
 if (apiKey && apiKey !== 'your_gemini_api_key_here') {
   genAI = new GoogleGenerativeAI(apiKey);
   model = genAI.getGenerativeModel({
-    model: process.env.GEMINI_MODEL || 'gemini-1.5-flash',
+    model: process.env.GEMINI_MODEL || 'gemini-2.5-flash',
     systemInstruction: SYSTEM_PROMPT,
     generationConfig: {
       temperature: 0.25,
-      maxOutputTokens: 350,
+      maxOutputTokens: 700,
     }
   });
   console.log('Gemini 1.5 Flash initialized successfully.');

@@ -128,13 +128,17 @@
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;');
 
+    // Headings: ### Title or ## Title
+    formatted = formatted.replace(/(?:^|\n)#{1,4}\s+(.+)/g, '<span class="dt-heading">$1</span>');
+
     // Bold **text**
     formatted = formatted.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
 
-    // Bullet points * or -
-    formatted = formatted.replace(/(?:^|\n)[*-]\s+(.+)/g, '<br>• $1');
+    // Bullet points: lines starting with * or - or •
+    formatted = formatted.replace(/(?:^|\n)[*\-•]\s+(.+)/g, '<div class="dt-bullet-item"><span class="dt-bullet-dot">•</span><span>$1</span></div>');
 
-    // Line breaks
+    // Clean multiple line breaks
+    formatted = formatted.replace(/\n\n+/g, '<br><br>');
     formatted = formatted.replace(/\n/g, '<br>');
 
     // Phone numbers clickable
