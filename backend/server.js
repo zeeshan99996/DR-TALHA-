@@ -62,7 +62,7 @@ function getFastPathResponse(query) {
   if (!q) return null;
 
   // Greetings
-  if (/^(salam|assalam|assalamu|aoa|hi|hello|hey|slam)$/.test(q)) {
+  if (/^(salam|assalam|assalamu|aoa|hi|hello|hey|slam|assalam\s*o\s*alaikum|assalamu\s*alaikum)/.test(q)) {
     return "Walaikum Assalam! Main Talha Clinic & Maternity Home ka Virtual Assistant hoon. Main aapki kya madad kar sakta hoon? Aap doctor timings, services, lab tests ya appointment ke baarey mein pooch sakte hain.";
   }
 

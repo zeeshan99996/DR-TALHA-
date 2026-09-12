@@ -1,0 +1,14 @@
+{
+  "name": "dr-talha-clinic",
+  "version": "1.0.0",
+  "description": "Talha Clinic & Maternity Home — 24/7 Emergency Care",
+  "main": "local-server.js",
+  "scripts": {
+    "build": "echo 'Build successful'",
+    "start": "node local-server.js"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.24.0",
+    "node-cache": "^5.1.2"
+  }
+}
